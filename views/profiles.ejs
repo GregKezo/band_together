@@ -33,22 +33,7 @@
          <th>Style</th>
          <th>Needs</th>
        </thead>
-       <tbody>
-         <% profiles.forEach( function(profile) { %>
-           <% action = '/profiles/' + profile.id %>
-           <tr>
-             <td>
-               <a href=<%= action %>><%= profile.title %></a>
-             </td>
-             <td><%= profile.description %></td>
-             <td>
-               <form action=<%= action %> method="POST">
-                 <button class="btn" type="submit">Delete</button>
-               </form>
-             </td>
-           </tr>
-
-         <% }); %>
+       
        </tbody>
      </table>
    </body>
