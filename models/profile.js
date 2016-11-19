@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var Profile = new Schema({
+/*var Profile = new Schema({
   name: String,
   age: Number,
   area: String,
@@ -12,4 +12,4 @@ var Profile = new Schema({
   updatedAt: Date
 });
 
-module.exports = mongoose.model('Profile', Profile);
+module.exports = mongoose.model('Profile', Profile);*/

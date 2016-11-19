@@ -10,13 +10,13 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.post('/', function (req, res, next) {
+/*router.post('/', function (req, res, next) {
   new Profile({
     name: req.body.name,
     age: req.body.age,
     area: req.body.area,
-    instruments: req.body.instruments
-    experience: req.body.experience
+    instruments: req.body.instruments,
+    experience: req.body.experience,
     style: req.body.style,
     needs: req.body.needs,
     updatedAt: Date.now()
@@ -35,7 +35,7 @@ router.post('/:id', function (req, res) {
 
 router.post('/edit/:id', function (req, res) {
   Profile.findById ( req.params.id, function(err, profile) {
-    profile.name: req.body.name,
+    profile.name: req.body.name
     profile.age: req.body.age,
     profile.area: req.body.area,
     profile.instruments: req.body.instruments
@@ -47,7 +47,6 @@ router.post('/edit/:id', function (req, res) {
       res.redirect('/profiles');
     });
   });
-});
-
+});*/
 
 module.exports = router;
