@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <% include ./partials/head %>
+ </head>
+ <body>
+   <header>
+     <% include ./partials/header %>
+   </header>
+   <h1 class='center'>Search</h1>
+   <hr />
+   <div class='row'>
+     <div class='col s12 m4'>
+       <h3>Search Profile</h3>
+       <form action='/profiles' method='post'>
+         <input type='text' name='title' placeholder='Name' />
+         <input type='number' name='age' placeholder='Age'/>
+         <input type='text' name='experience' placeholder='Experience'/>
+         <input type='number' name='location' placeholder='Zipcode'/>
+         <input type='text' name='instruments' placeholder='Instrument'/>
+         <input type='text' name='style' placeholder='Style'/>
+         <input type='text' name='needs' placeholder='Needs'/>
+         <button class='btn btn-waves' type='submit'>Search</button>
+       </form>
+     </div>
+     <table class='table col m8 s12'>
+       <thead>
+         <th>Name</th>
+         <th>Age<th>
+         <th>Experience</th>
+         <th>Area</th>
+         <th>Instruments</th>
+         <th>Style</th>
+         <th>Needs</th>
+       </thead>
+
+       </tbody>
+     </table>
+   </body>
+</html>
