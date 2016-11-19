@@ -9,7 +9,7 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 100%;
+        height: 90%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -19,50 +19,95 @@
       }
     </style>
   </head>
-  <body>
+  <body id="map-container">
     <% include ./partials/header %>
     <div id="map"></div>
     <script>
-      // Note: This example requires that you consent to location sharing when
-      // prompted by your browser. If you see the error "The Geolocation service
-      // failed.", it means you probably did not give permission for the browser to
-      // locate you.
+      var markers = [
+        {
+            "type": "Point",
+            "coordinates": [
+                -111.891047, 40.760779
+            ]
+        },
+        {
+            "type": "Point",
+            "coordinates": [
+                -111.904356, 40.765148
+            ]
+        },
+        {
+            "type": "Point",
+            "coordinates": [
+                -111.891047, 40.760779
+            ]
+        },
+        {
+            "type": "Point",
+            "coordinates": [
+               -111.947980, 40.800698
+            ]
+        },
+        {
+            "type": "Point",
+            "coordinates": [
+               -111.928024, 40.816777
+            ]
+        },
+        {
+            "type": "Point",
+            "coordinates": [
+             -111.872921, 40.781772
+           ]
+        },
+        {
+            "type": "Point",
+            "coordinates": [
+               -111.874015, 40.756810
+             ]
+        },
+        {
+            "type": "Point",
+            "coordinates": [
+               -111.893799, 40.753803
+            ]
+        },
 
+        {
+            "type": "Point",
+            "coordinates": [
+              -111.936543, 40.740083
+              ]
+        }
+      ]
       function initMap() {
-        var script = document.getElementById
-
+        var myLatLng = {lat: 40.7607793, lng: -111.8910474};
 
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 6
+          zoom: 12,
+          center: myLatLng
         });
-        var infoWindow = new google.maps.InfoWindow({map: map});
 
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
+        for(var i = 0; i < markers.length; i++) {
+          var lat = markers[i].coordinates[1];
+          var lng = markers[i].coordinates[0];
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
+          (function addMarker(lat, lng) {
+            new google.maps.Marker({
+              position: {lat: lat, lng: lng},
+              map: map,
+              title: 'Hello World!'
+            });
+          })(lat, lng)
         }
-      }
 
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
+
+
+        // var marker = new google.maps.Marker({
+        //   position: myLatLng,
+        //   map: map,
+        //   title: 'Hello World!'
+        // });
       }
     </script>
     <script async defer
