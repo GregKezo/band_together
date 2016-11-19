@@ -26,18 +26,20 @@ router.post('/', function (req, res) {
     })
 });
 
-/* GET band-togethers listing. */
-// router.get('/', function(req, res, next) {
-//   Profile.find( function(err, profiles) {
-//     res.send('profiles', {profiles: profiles});
-//   });
-// });
-//
+ /*GET band-togethers listing. */
+router.get('/', function(req, res, next) {
+  console.log('IN PROFILES');
+  Profile.find( function(err, profiles) {
+    console.log(err)
+    res.render('profiles', { profiles: profiles });
+  });
+});
 
 
 
 
-/*router.post('/', function (req, res, next) {
+
+router.post('/', function (req, res, next) {
   new Profile({
     name: req.body.name,
     age: req.body.age,
@@ -60,20 +62,20 @@ router.post('/:id', function (req, res) {
   });
 });
 
-router.post('/edit/:id', function (req, res) {
-  Profile.findById ( req.params.id, function(err, profile) {
-    profile.name: req.body.name
-    profile.age: req.body.age,
-    profile.area: req.body.area,
-    profile.instruments: req.body.instruments
-    profile.experience: req.body.experience
-    profile.style: req.body.style,
-    profile.needs: req.body.needs,
-    profile.updatedAt: Date.now()
-    profile.save( function() {
-      res.redirect('/profiles');
-    });
-  });
-});*/
+// router.post('/edit/:id', function (req, res) {
+//   Profile.findById ( req.params.id, function(err, profile) {
+//     profile.name: req.body.name
+//     profile.age: req.body.age,
+//     profile.area: req.body.area,
+//     profile.instruments: req.body.instruments
+//     profile.experience: req.body.experience
+//     profile.style: req.body.style,
+//     profile.needs: req.body.needs,
+//     profile.updatedAt: Date.now()
+//     profile.save( function() {
+//       res.redirect('/profiles');
+//     });
+//   });
+// });
 
 module.exports = router;
