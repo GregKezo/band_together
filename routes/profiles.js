@@ -12,8 +12,13 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function (req, res, next) {
   new Profile({
-    title: req.body.title,
-    description: req.body.description,
+    name: req.body.name,
+    age: req.body.age,
+    area: req.body.area,
+    instruments: req.body.instruments
+    experience: req.body.experience
+    style: req.body.style,
+    needs: req.body.needs,
     updatedAt: Date.now()
   }).save( function(err, profile) {
     res.redirect('/profiles');
@@ -30,9 +35,14 @@ router.post('/:id', function (req, res) {
 
 router.post('/edit/:id', function (req, res) {
   Profile.findById ( req.params.id, function(err, profile) {
-    profile.title = req.body.title;
-    profile.description = req.body.description;
-    profile.updatedAt = Date.now();
+    profile.name: req.body.name,
+    profile.age: req.body.age,
+    profile.area: req.body.area,
+    profile.instruments: req.body.instruments
+    profile.experience: req.body.experience
+    profile.style: req.body.style,
+    profile.needs: req.body.needs,
+    profile.updatedAt: Date.now()
     profile.save( function() {
       res.redirect('/profiles');
     });
