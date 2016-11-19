@@ -38,9 +38,15 @@
            <% action = '/profiles/' + profile.id %>
            <tr>
              <td>
-               <a href=<%= action %>><%= profile.title %></a>
+               <a href=<%= action %>><%= profile.name %></a>
              </td>
-             <td><%= profile.description %></td>
+             <td><%= profile.email %></td>
+             <td><%= profile.age %></td>
+             <td><%= profile.area %></td>
+             <td><%= profile.instruments %></td>
+             <td><%= profile.experience %></td>
+             <td><%= profile.style %></td>
+             <td><%= profile.needs %></td>
              <td>
                <form action=<%= action %> method="POST">
                  <button class="btn" type="submit">Delete</button>
