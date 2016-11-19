@@ -1,1 +1,6 @@
 @import 'materialize.min.css';
+
+img {
+  width: inherit;
+  height: inherit;
+}
