@@ -15,8 +15,8 @@ router.post('/', function (req, res, next) {
     name: req.body.name,
     age: req.body.age,
     area: req.body.area,
-    instruments: req.body.instruments
-    experience: req.body.experience
+    instruments: req.body.instruments,
+    experience: req.body.experience,
     style: req.body.style,
     needs: req.body.needs,
     updatedAt: Date.now()

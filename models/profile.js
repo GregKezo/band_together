@@ -1,5 +1,8 @@
+/*var mongoose = require('mongoose');
+var Schema = mongoose.Schema;*/
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+mongoose.connect('mongodb://localhost/band-together');
+var Profile = require('./models/profile');
 
 var Profile = new Schema({
   name: String,
