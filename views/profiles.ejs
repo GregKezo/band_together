@@ -13,11 +13,12 @@
      <div class='col s12 m4'>
        <h3>Add Profile</h3>
        <form action='/profiles' method='post'>
-         <input type='text' name='title' placeholder='Your Name' />
+         <input type='text' name='name' placeholder='Your Name' />
+         <input type='text' name='email' placeholder='You@realemail.com' />
          <input type='number' name='age' placeholder='How old are you?'/>
-         <input type='text' name='experience' placeholder='How long have you been shredding?'/>
          <input type='text' name='location' placeholder='Whereabouts do you live?'/>
          <input type='text' name='instruments' placeholder='What do you play?'/>
+         <input type='number' name='experience' placeholder='How long (in years) have you been shredding?'/>
          <input type='text' name='style' placeholder='What is your style?'/>
          <input type='text' name='needs' placeholder='Who will complete the band?'/>
          <button class='btn btn-waves' type='submit'>Add</button>
@@ -26,23 +27,24 @@
      <table class='table col m8 s12'>
        <thead>
          <th>Name</th>
-         <th>Age<th>
-         <th>Experience</th>
-         <th>Area</th>
+         <th>Email</th>
+         <th>Age</th>
+         <th>Location</th>
          <th>Instruments</th>
+         <th>Experience</th>
          <th>Style</th>
          <th>Needs</th>
        </thead>
        <tbody>
           <% profiles.forEach( function(profile) { %>
-           <% action = '/profiles/' + profile.id %>
+           <% action = '/profiles/' +profile.id %>
            <tr>
              <td>
                <a href=<%= action %>><%= profile.name %></a>
              </td>
              <td><%= profile.email %></td>
              <td><%= profile.age %></td>
-             <td><%= profile.area %></td>
+             <td><%= profile.location %></td>
              <td><%= profile.instruments %></td>
              <td><%= profile.experience %></td>
              <td><%= profile.style %></td>

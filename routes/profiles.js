@@ -22,7 +22,7 @@ router.post('/', function (req, res) {
       style: style,
       needs: needs
     }).save( function(profile) {
-    res.redirect("/")
+    res.redirect("/profiles")
     })
 });
 
@@ -55,7 +55,7 @@ router.post('/', function (req, res, next) {
 });
 
 router.post('/:id', function (req, res) {
-  Profile.finById(req.params.id, function(err, profile) {
+  Profile.findById(req.params.id, function(err, profile) {
     profile.remove( function() {
       res.redirect('/profiles');
     });
@@ -77,5 +77,12 @@ router.post('/:id', function (req, res) {
 //     });
 //   });
 // });
+
+router.get('/:id', function(req, res){
+  Profile.findById(req.params.id, function(err, profile){
+    res.render('profile', {profile: profile});
+  });
+});
+
 
 module.exports = router;
