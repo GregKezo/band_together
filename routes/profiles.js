@@ -3,12 +3,39 @@ var router = express.Router();
 var mongoose = require ('mongoose');
 var Profile = require('../models/profile');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  Profile.find( function(err, profiles) {
-    res.send('profiles', {profiles: profiles});
-  });
+router.post('/', function (req, res) {
+    var name = req.body.name;
+    var email = req.body.email;
+    var age = req.body.age;
+    var area = req.body.area;
+    var instruments = req.body.instruments;
+    var experience = req.body.experience;
+    var style = req.body.style;
+    var needs = req.body.needs;
+    new Profile({
+      name: name,
+      email: email,
+      age: age,
+      area: area,
+      instruments: instruments,
+      experience: experience,
+      style: style,
+      needs: needs
+    }).save( function(profile) {
+    res.redirect("/")
+    })
 });
+
+/* GET band-togethers listing. */
+// router.get('/', function(req, res, next) {
+//   Profile.find( function(err, profiles) {
+//     res.send('profiles', {profiles: profiles});
+//   });
+// });
+//
+
+
+
 
 /*router.post('/', function (req, res, next) {
   new Profile({

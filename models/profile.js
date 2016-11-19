@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/band-together');
 var Schema = mongoose.Schema
 
 var Profile = new Schema({
   name: String,
+  email: String,
   age: Number,
   area: String,
   instruments: String,
